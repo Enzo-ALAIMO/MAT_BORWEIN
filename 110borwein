@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+##
+## EPITECH PROJECT, 2020
+## Projects 110Borwein
+## File description:
+## 110borwein.py
+##
+
+import sys
+import math
+from check import *
+from calc_functions import *
+
+def display_mid(n):
+    mid = calc_midpoint(n)
+    diff = abs(mid - pi / 2)
+
+    print("Midpoint:")
+    print("I%d = %.10f" %(n, mid))
+    print("diff = %.10f\n" %(diff))
+
+def display_trap(n):
+    trap = calc_trapezoid(n)
+    diff = abs(trap - pi / 2)
+
+    print("Trapezoidal:")
+    print("I%d = %.10f" %(n, trap))
+    print("diff = %.10f\n" %(diff))
+
+def display_sim(n):
+    sim = calc_simpson(n)
+    diff = abs(sim - pi / 2)
+
+    print("Simpson:")
+    print("I%d = %.10f" %(n, sim))
+    print("diff = %.10f" %(diff))
+
+def main(av):
+    check_error(len(av), av)
+
+    n = int(sys.argv[1])
+    check_n(n)
+
+    display_mid(n)
+    display_trap(n)
+    display_sim(n)
+
+if __name__ == "__main__":
+    main(sys.argv)
